@@ -2,20 +2,166 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #5fffff;
+  --black-primary: #111110;
+  --black-transparent: #11111075;
+  --white-primary: #fefefe;
+  --white-transparent: #fefefece;
+  --gray-primary: #808080;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+/* FONTS FONTS FONTS */
+/* Neue Machine Inktrap */
+@font-face {
+  font-family: "MachinaLight";
+  src: url("/fonts/neue-machina/PPNeueMachina-InktrapLight.otf") format("opentype");
+}
+@font-face {
+  font-family: "MachinaLightItalic";
+  src: url("/fonts/neue-machina/PPNeueMachina-InktrapLightItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: "MachinaRegular";
+  src: url("/fonts/neue-machina/PPNeueMachina-InktrapRegular.otf") format("opentype");
+}
+@font-face {
+  font-family: "MachinaRegularItalic";
+  src: url("/fonts/neue-machina/PPNeueMachina-InktrapRegularItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: "MachinaUltrabold";
+  src: url("/fonts/neue-machina/PPNeueMachina-InktrapUltrabold.otf") format("opentype");
+}
+@font-face {
+  font-family: "MachinaUltraboldItalic";
+  src: url("/fonts/neue-machina/PPNeueMachina-InktrapUltraboldItalic.otf") format("opentype");
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* PP Object Sans */
+@font-face {
+  font-family: 'PPObjectSansRegular';
+  src: url('/fonts/pp-object-sans/PPObjectSans-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'PPObjectSansHeavy';
+  src: url('/fonts/pp-object-sans/PPObjectSans-Heavy.otf') format('opentype');
+}
+@font-face {
+  font-family: 'PPObjectSansHeavySlanted';
+  src: url('/fonts/pp-object-sans/PPObjectSans-HeavySlanted.otf') format('opentype');
+}
+@font-face {
+  font-family: 'PPObjectSansSlanted';
+  src: url('/fonts/pp-object-sans/PPObjectSans-Slanted.otf') format('opentype');
+}
+
+
+
+
+/* GENERAL STYLES GENERAL STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* ::selection { 
+  background-color: #b3d4fc;
+  color: #00000000;
+} */
+::selection {
+  background-color: #b3d4fc; /* Color de fondo especificado */
+  color: rgba(0, 0, 0, 0.515); /* Texto semitransparente */
+}
+
+
+
+
+/* SCROLLBAR STYLES SCROLLBAR STYLES */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) #ffffff00;
+  border-right: 1px solid var(--gray-primary);
+
+}
+
+/* Para Chrome, Safari, Edge */
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #ffffff00; 
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+/* ES EL TAMAÑO DEL COSO QUE ESTA EN EL INICIO (el bicho ese redondo) */
+canvas {
+  width: 120% !important;
+  height: 105% !important;
+}
+
+
+
+
+/* ANIMATIONS ANIMATIONS ANIMATIONS */
+
+/* Animaciones del fondo */
+@keyframes changeSize1 {
+  0%, 100% { width: 0px; height: 150px; }
+  33% { width: 0px; height: 50px; }
+  66% { width: 0px; height: 150px; }
+}
+
+@keyframes moveContainer1 {
+  0%{ top: 80%; left: 100px; }
+  25% { top: 50%; left: 200px; }
+  50% { top: 0%; left: 50px; }
+  75% { top: 50%; left: 200px; }
+  100% { top: 80%; left: 100px; }
+}
+
+.animate-changeSize-1 {
+  animation: changeSize1 20s infinite;
+}
+
+.animate-moveContainer-1 {
+  animation: moveContainer1 20s infinite;
+}
+
+
+@keyframes changeSize2 {
+  0%, 100% { width: 0px; height: 250px; }
+  33% { width: 0px; height: 0px; }
+  66% { width: 0px; height: 50px; }
+}
+
+@keyframes moveContainer2 {
+  0%{ top: 0%; left: 100%; }
+  25% { top: 50%; left: 90%; }
+  50% { top: 100%; left: 85%; }
+  75% { top: 50%; left: 70%; }
+  100% { top: 0%; left: 100%; }
+}
+
+.animate-changeSize-2 {
+  animation: changeSize2 30s infinite;
+}
+
+.animate-moveContainer-2 {
+  animation: moveContainer2 30s infinite;
+  color: var(--white-primary);
 }
